@@ -15,7 +15,7 @@
       @endif
       required
     />
-    <label for="apellidoPat" class="form-label fuente">Apellido paterno del alumno:</label>
+    <label for="apellidoPat" class="form-label fuente">Apellido paterno del usuario:</label>
   </div>
 
   <div class="form-floating mb-3">
