@@ -1,6 +1,28 @@
 @extends('dashboard')
 
 @section('contenido')
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>   {{-- Incluye SweetAlert2 para manejar mensajes emergentes --}}
+{{-- Muestra un mensaje de error/exito si existe en la sesión --}}
+@if(session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '{{ session('error') }}',
+        });
+    </script>
+@endif
+
+@if(session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@endif
 <a href='/prestamo/create'>
     <button type="button" class="btn btn-success">Registrar Prestamo</button>
 </a> <br><br>

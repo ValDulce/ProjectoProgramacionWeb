@@ -81,10 +81,17 @@ class CategoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    //
+        //categoria::destroy($categoria);
+        //return redirect('/categoria');
     public function destroy( $categoria)
     {
-        //
-        categoria::destroy($categoria);
-        return redirect('/categoria');
+
+        try {
+            categoria::destroy($categoria);
+        return redirect('/categoria')->with('success', 'El autor se eliminó correctamente.');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', 'No puedes eliminar un registro que tiene relación con otra tabla.');
+        }
     }
 }

@@ -88,8 +88,14 @@ class UsuarioController extends Controller
      */
     public function destroy($usuario)
     {
-        usuario::destroy($usuario);
-        return redirect('/usuario');
-        
+       
+        try {
+            usuario::destroy($usuario);
+        return redirect('/usuario')->with('success', 'El usuario se eliminó correctamente.');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', 'No puedes eliminar un registro que tiene relación con otra tabla.');
+        }
     }
 }
+    // usuario::destroy($usuario);
+       //  return redirect('/usuario');

@@ -99,10 +99,18 @@ class LibroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
+     //
+        // libro::destroy($libro);
+         //return redirect('/libro');
     public function destroy( $libro)
     {
-        //
-        libro::destroy($libro);
-        return redirect('/libro');
+        
+        try {
+            libro::destroy($libro);
+            return redirect('/libro')->with('success', 'El libro se eliminó correctamente.');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', 'No puedes eliminar un registro que tiene relación con otra tabla.');
+        }
     }
 }

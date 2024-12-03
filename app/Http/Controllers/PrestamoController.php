@@ -97,10 +97,19 @@ class PrestamoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
+     //
+         //prestamo::destroy($prestamo);
+        // return redirect('/prestamo');
     public function destroy( $prestamo)
     {
-        //
-        prestamo::destroy($prestamo);
-        return redirect('/prestamo');
+        
+
+        try {
+            prestamo::destroy($prestamo);
+            return redirect('/prestamo')->with('success', 'El prestamo se eliminó correctamente.');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', 'No puedes eliminar un registro que tiene relación con otra tabla.');
+        }
     }
 }

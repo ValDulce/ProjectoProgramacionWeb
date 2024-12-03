@@ -74,10 +74,18 @@ class EditorialController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
+     //
+        //editorial::destroy($editorial);
+        //return redirect('/editorial');
+
     public function destroy( $editorial)
     {
-        //
-        editorial::destroy($editorial);
-        return redirect('/editorial');
+        try {
+            editorial::destroy($editorial);
+        return redirect('/editorial')->with('success', 'La editorial se eliminó correctamente.');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', 'No puedes eliminar un registro que tiene relación con otra tabla.');
+        }
     }
 }

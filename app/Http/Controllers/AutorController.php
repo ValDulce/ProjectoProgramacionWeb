@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\autor;
 use Illuminate\Http\Request;
+use Illi¿uminate\Database\Eloquent\ModelNotFoundException;
 
 class AutorController extends Controller
 {
@@ -82,10 +83,14 @@ class AutorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( $autor)
+    public function destroy($autor)
     {
-        //
-        autor::destroy($autor);
-        return redirect('/autor');
+        try {
+            Autor::destroy($autor);
+            return redirect('/autor')->with('success', 'El autor se eliminó correctamente.');
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', 'No puedes eliminar un registro que tiene relación con otra tabla.');
+        }
     }
+    
 }
