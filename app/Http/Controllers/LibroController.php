@@ -30,14 +30,13 @@ class LibroController extends Controller
     public function create()
     {
         
-       
-        $usuario = usuario::all();
+      
         $autor = autor::all(); // Recupera  los autores
         $categoria = categoria::all(); // Recupera  las categorías
         $editorial = editorial::all(); // Recupera  las editoriales
     
         // Envía estas variables a la vista
-        return view('libros.alta', ['usuarios'=> $usuario ,'autores'=> $autor , 'categoria'=> $categoria, 'editorial'=> $editorial]);
+        return view('libros.alta', ['autores'=> $autor , 'categoria'=> $categoria, 'editorial'=> $editorial]);
     }
 
     /**
