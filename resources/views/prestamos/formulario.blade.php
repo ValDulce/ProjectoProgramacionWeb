@@ -24,7 +24,10 @@
           <option selected>Selecciona nombre del usuario</option>
           @foreach ($usuarios as $usuario)
           <option value="{{$usuario->id}}">{{$usuario->nombre}}</option>                
+          
           @endforeach
+
+          
         </select>
     </div>
 
@@ -40,11 +43,11 @@
     <div class="form-floating mb-3">
       <select id="estatus" name="estatus" class="form-control fuente" placeholder="estatus del usuario">
           <option value="completo" 
-              @if(isset($prestamo) && $prestamo->estatus === 'completo') selected @endif>
+              @if(isset($prestamo) && $prestamo->estatus === 'completo') selected @endif required>
               Completo
           </option>
           <option value="incompleto" 
-              @if(isset($prestamo) && $prestamo->estatus === 'incompleto') selected @endif>
+              @if(isset($prestamo) && $prestamo->estatus === 'incompleto') selected @endif required>
               Incompleto
           </option>
       </select>

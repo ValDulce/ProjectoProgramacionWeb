@@ -34,6 +34,7 @@ class EditorialController extends Controller
     public function store(Request $request)
     {
         // Validar los datos antes de guardarlos
+        
         $nuevoeditorial=new editorial;
         $nuevoeditorial->Nombre_editorial=$request->Nombre_editorial;
         

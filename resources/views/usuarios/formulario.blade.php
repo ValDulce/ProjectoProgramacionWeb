@@ -1,6 +1,6 @@
 <div class="form-floating mb-3">
   <div class="form-floating mb-3">
-      <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre del usuario"
+      <input type="name" id="nombre" name="nombre" class="form-control" placeholder="Nombre del usuario"
       @if(isset($usuario))
         value={{$usuario->nombre}}
       @endif
@@ -56,8 +56,9 @@
         @if ($usuario->sexo=="masculino")
           checked 
         @endif
-        required
+        
       @endif
+      required
       />
     </div>
     <input type="text" class="form-control fuente" aria-label="Masculino" value="Masculino">
@@ -68,8 +69,9 @@
         @if ($usuario->sexo=="femenino")
           checked 
         @endif
-        required
+        
       @endif
+      required
       />
     </div>
     

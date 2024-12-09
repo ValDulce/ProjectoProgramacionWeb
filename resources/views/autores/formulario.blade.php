@@ -37,6 +37,7 @@
             checked 
           @endif
         @endif
+        required
         />
       </div>
       <input type="text" class="form-control fuente" aria-label="Masculino" value="Masculino">
@@ -48,6 +49,7 @@
             checked 
           @endif
         @endif
+        required
         />
       </div>
       <input type="text" class="form-control fuente" aria-label="Femenino" value="Femenino">

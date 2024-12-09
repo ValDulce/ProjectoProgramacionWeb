@@ -66,10 +66,7 @@ class CategoriaController extends Controller
      */
     public function update(Request $request,  $categoria)
     {
-        $request->validate([
-            'Nombre_editorial' => 'required|string|max:255|unique:categorias,Nombre_editorial,' . $editorial->id,] // Ignorar unicidad del actual
-            ,['nombre.unique' => 'La cateogoria ya está registrada.',
-            ]);
+        
     
         $nuevocategorias=categoria::findorfail($categoria);
         $nuevocategorias->tipo=$request->tipo;
